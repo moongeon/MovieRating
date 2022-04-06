@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1010228858140",
+    "project_id": "movie-rating-3e1bd",
+    "storage_bucket": "movie-rating-3e1bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1010228858140:android:bd9487cc99085b1638fed9",
+        "android_client_info": {
+          "package_name": "com.mungeun.movierating"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1010228858140-hs1tf0863sdaa48fp09eod1jlhrf9s4a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVEDfWlNxKO6hnzjJsoyGEwkLJzjqiEok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1010228858140-hs1tf0863sdaa48fp09eod1jlhrf9s4a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
