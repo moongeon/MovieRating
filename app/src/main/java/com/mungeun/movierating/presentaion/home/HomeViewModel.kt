@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mungeun.movierating.domain.model.Movie
 import com.mungeun.movierating.domain.usecase.GetAllMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -19,10 +20,14 @@ class HomeViewModel @Inject constructor(
     }
     val text: LiveData<String> = _text
 
+    private  var _moveList = MutableLiveData<List<Movie>>()
+
+    val moveList = _moveList
+
     init {
         viewModelScope.launch {
-            var a = getAllMoviesUseCase.Invoke()
-            var b = ""
+            _moveList.value = getAllMoviesUseCase.Invoke()
+
 
         }
 
