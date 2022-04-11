@@ -5,9 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mungeun.movierating.domain.model.Movie
+import com.mungeun.movierating.domain.model.Review
 import com.mungeun.movierating.domain.usecase.GetAllMoviesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,10 +26,16 @@ class HomeViewModel @Inject constructor(
 
     val moveList = _moveList
 
+    private  var _review = MutableLiveData<List<Review>>()
+
+    val review = _review
+
+
+
     init {
         viewModelScope.launch {
+            _review.value = listOf(Review(content = "굿굿"))
             _moveList.value = getAllMoviesUseCase.Invoke()
-
 
         }
 

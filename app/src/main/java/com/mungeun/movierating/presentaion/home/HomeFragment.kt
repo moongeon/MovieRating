@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mungeun.movierating.databinding.FragmentHomeBinding
+import com.mungeun.movierating.presentaion.extension.dip
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,7 +23,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
 
     private val binding get() = _binding!!
-
+    var data = mutableListOf<Any>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,9 +41,18 @@ class HomeFragment : Fragment() {
 
         }
 
-        viewModel.moveList.observe(viewLifecycleOwner,{
-            homeAdapter.submitList(it)
-        })
+        with(viewModel){
+            moveList.observe(viewLifecycleOwner,{
+                data.addAll(it)
+                homeAdapter.submitList(data)
+            })
+            review.observe(viewLifecycleOwner,{
+                data.addAll(it)
+                homeAdapter.submitList(data)
+            })
+
+        }
+
 
         return binding.root
     }
